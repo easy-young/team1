@@ -10,7 +10,6 @@ require('dotenv').config()
 const app = express()
 const router = require('./routers')
 
-
 app.set('view engine','html')
 nunjucks.configure('views',{
     express:app,
@@ -22,7 +21,7 @@ const maxAge = 6000
 let sessionObj = {
     secret: "kimhelp",
     resave : false,
-    saveuninitialized: true,
+    saveUninitialized: true,
     store: new Memorystore({ checkPeriod: maxAge}),
     cookie:{
         maxAge:maxAge

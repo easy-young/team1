@@ -16,7 +16,7 @@
             <td>Date</td>
         </tr>
         {% set num = 1 %}
-        {% for item in list %}
+        {% for item in result %}
         <tr>
             <td>{{num}}</td>
             <td><a href="/admin/view?index={{num}}">{{item.username}}</a></td>
@@ -26,5 +26,6 @@
         {% set num = num + 1 %}
         {% endfor %}
     </table>
+    <a href="/admin/logout">Logout</a>
 </body>
 </html>
