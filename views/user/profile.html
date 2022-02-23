@@ -4,27 +4,105 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>profile</title>
     
 </head>
 <body>
-    <div id="wrap">
-        <table>
-            <h1>회원 가입을 환영합니다!</h1>
-            <tr>
-                <td>아이디 : {{user.userid}}</td>
-            </tr>
-            <tr>
-                <td>이름 : {{user.name}}</td>
-            </tr>
-            <tr>
-                <td>닉네임 : {{user.username}}</td>
-            </tr>
-            <tr>
-                <td>level : {{user.level}}</td>
-            </tr>
-        </table>
-    </div>
+    <main id="main-holder">
+        <form id="login-form">
+            <table>
+                <h1 id="login-header">환영합니다!!!</h1>
+                <p class="sign" align="center">입력하신 정보입니다.</p>
+                <tr>
+                    <td>아이디 : {{param[0]}}</td>
+                </tr>
+                <tr>
+                    <td>이름 : {{param[2]}}</td>
+                </tr>
+                <tr>
+                    <td>닉네임 : {{param[3]}}</td>
+                </tr>
+                <tr>
+                    <td>level : {{param[4]}}</td>
+                </tr>
+                <tr>
+                    <td>생일 : {{param[5]}}</td>
+                </tr>
+                <tr>
+                    <td>성별 : {{param[6]}}</td>
+                </tr>
+                <tr>
+                    <td>전화번호 : {{param[7]}}</td>
+                </tr>
+                <tr>
+                    <td>휴대전화번호 : {{param[8]}}</td>
+                </tr>
+            </table>
+            <input id="login-form-submit" type="submit" value="확인" onClick="location.href='index.html';">
+        </form> 
+    </main>
 </body>
 </html>
+
+<style>
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0; 
+    font-family: Arial, Helvetica, sans-serif; 
+    display: grid; 
+    justify-items: center; 
+    align-items: center; 
+    background-color: #3a3a3a; 
+}
+
+#main-holder { 
+    width: 50%; 
+    height: 70%; 
+    display: grid; 
+    justify-items: center; 
+    align-items: center; 
+    background-color: white; 
+    border-radius: 7px; 
+    box-shadow: 0px 0px 5px 2px black; 
+}
+
+#login-form { 
+    align-self: flex-start; 
+    display: grid; 
+    justify-items: center; 
+    align-items: center; 
+}
+
+.login-form-field::placeholder { 
+    color: #3a3a3a; 
+}
+
+.login-form-field { 
+    width: 100%; 
+    border: none; 
+    border-bottom: 1px solid #3a3a3a; 
+    margin-bottom: 10px; 
+    border-radius: 3px; 
+    outline: none; 
+    padding: 0px 0px 5px 5px; 
+}
+
+#login-form-submit { 
+    width: 100%; 
+    padding: 7px; 
+    border: none; 
+    border-radius: 5px; 
+    color: white; 
+    font-weight: bold; 
+    background-color: #3a3a3a; 
+    cursor: pointer; 
+    outline: none; 
+}
+
+
+</style>
 
