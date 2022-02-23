@@ -12,16 +12,28 @@
         <table>
             <h1>회원 가입을 환영합니다!</h1>
             <tr>
-                <td>아이디 : {{user.userid}}</td>
+                <td>아이디 : {{param[0]}}</td>
             </tr>
             <tr>
-                <td>이름 : {{user.name}}</td>
+                <td>이름 : {{param[2]}}</td>
             </tr>
             <tr>
-                <td>닉네임 : {{user.username}}</td>
+                <td>닉네임 : {{param[3]}}</td>
             </tr>
             <tr>
-                <td>level : {{user.level}}</td>
+                <td>level : {{param[4]}}</td>
+            </tr>
+            <tr>
+                <td>생일 : {{param[5]}}</td>
+            </tr>
+            <tr>
+                <td>성별 : {{param[6]}}</td>
+            </tr>
+            <tr>
+                <td>전화번호 : {{param[7]}}</td>
+            </tr>
+            <tr>
+                <td>휴대전화번호 : {{param[8]}}</td>
             </tr>
         </table>
     </div>

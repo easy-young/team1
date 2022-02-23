@@ -3,20 +3,13 @@ const router = express.Router()
 const {alertmove} = require('../util/alert')
 const userRouter = require('./user')
 const boardRouter = require('./board')
-const pool = require('../db')
+const adminRouter = require('./admin')
 const db = require('../db')
 
 router.get('/',(req,res)=>{
     const {user} = req.session
     res.render('index',{
         user
-    })
-})
-
-router.post('/',(req,res)=>{
-    const param = req.session
-    db.query('select userid from user',(err,row)=>{
-        if(err) console.log(err);
     })
 })
 
@@ -31,5 +24,5 @@ const login = (req,res,next)=>{
 
 router.use('/user',userRouter)
 router.use('/board',login,boardRouter)
-
+router.use('/admin',adminRouter)
 module.exports = router

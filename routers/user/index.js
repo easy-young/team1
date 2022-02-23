@@ -18,7 +18,8 @@ router.post('/register',(req,res,next)=>{
     db.query('INSERT INTO user(`userid`,`userpw`,`name`,`username`,`level`,`birth`,`gender`,`contact`,`phone`) VALUES(?,?,?,?,?,?,?,?,?)',param,(err,row)=>{
         if(err) console.log(err);
     })
-    res.render('user/profile')
+    res.render('user/profile',{param})
+    res.render('./index',{param})
 })
 
 router.post('/login',(req,res)=>{
