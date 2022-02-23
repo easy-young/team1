@@ -11,7 +11,7 @@
     <main id="main-holder">
         <form id="login-form">
             <table>
-                <h1 id="login-header">환영합니다!!!</h1>
+                <h1 id="login-header">환영합니다!</h1>
                 <p class="sign" align="center">입력하신 정보입니다.</p>
                 <tr>
                     <td>아이디 : {{param[0]}}</td>
@@ -38,17 +38,23 @@
                     <td>휴대전화번호 : {{param[8]}}</td>
                 </tr>
             </table>
-            <input id="login-form-submit" type="submit" value="확인" onClick="location.href='index.html';">
+            <input id="login-form-submit" type="submit" value="확인">
         </form> 
     </main>
 </body>
 </html>
 
 <style>
+*{
+    list-style: none;
+    text-align: center;
+}
 html {
     height: 100%;
 }
-
+td{
+    padding-top: 10px;
+}
 body {
     height: 100%;
     margin: 0; 
@@ -60,8 +66,8 @@ body {
 }
 
 #main-holder { 
-    width: 50%; 
-    height: 70%; 
+    width: 500px; 
+    height: 500px; 
     display: grid; 
     justify-items: center; 
     align-items: center; 
