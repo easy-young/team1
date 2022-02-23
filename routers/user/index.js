@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const {alertmove} = require('../../util/alert')
 const db = require('../../db')
-const pool = require('../../db');
 
 
 router.get('/login',(req,res)=>{
@@ -18,7 +17,6 @@ router.post('/register',(req,res,next)=>{
         if(err) console.log(err);
     })
     res.render('user/profile',{param})
-    res.render('./index',{param})
 })
 
 router.post('/login',(req,res)=>{
@@ -46,6 +44,9 @@ router.post('/login',(req,res)=>{
 //         res.send(alertmove('/user/login','아이디와 비밀번호 불일치.'))
 //     }
 // })
+router.get('/profile',(req,res)=>{
+    res.render('user/profile')
+})
 
 router.get('/logout',(req,res)=>{
     req.session.destroy(()=>{
