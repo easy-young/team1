@@ -1,11 +1,29 @@
-{% extends "_layout.html" %}
-{% block content %}
-게시판 글쓰기 페이지
-{% endblock %}
+<!-- /board/write.html -->
+<!DOCTYPE html>
+<html lang="en">
 
-<!-- 
-    localhost:3000/board/list
-    localhost:3000/board/write
-    localhost:3000/board/update
-    localhost:3000/board/view
- -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>
+        <a href="/">LOGO</a>
+    </h1>
+
+    <h2>게시판 글쓰기</h2>
+    <form method="post" action="board/write">
+        <ul>
+            <li>제목 : <input type="text" name="subject"></li>
+            <li>작성자 : <input type="text" name="username"></li>
+            <li>작성일 : <input type="text" name="date"></li>
+            <li>내용 : <textarea></textarea></li>
+        </ul>
+        <input type="submit" value="글 작성">
+    </form>
+</body>
+
+</html>
