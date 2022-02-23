@@ -2,6 +2,7 @@ const express = require('express');
 const nunjucks = require('nunjucks');
 const app = express();
 const router = express.Router();
+const {alertmove} = require('../../util/alert');
 const pool = require('../../db');
 
 router.get('/', (req, res)=>{
@@ -13,9 +14,10 @@ router.post('/', (req, res)=>{
     pool.getConnection((err, conn)=>{
         conn.query(`SELECT userid, userpw FROM user WHERE userid='${userid}' AND userpw='${userpw}' AND level='1'`, (error, result)=>{
             if (result.length != 0) {
+                req.session.userid = result[0].userid;
                 res.redirect('admin/list');
             } else {
-                res.redirect('admin');
+                res.send(alertmove('admin', 'Check your ID or Password.'));
             }
         });
         conn.release();
@@ -23,35 +25,44 @@ router.post('/', (req, res)=>{
 });
 
 router.get('/list', (req, res)=>{
-    pool.getConnection((err, conn)=>{
-        conn.query(`SELECT num, username, level, date FROM user ORDER BY date ASC`, (error, result)=>{
-            let list = result;
-            res.render('admin/list', {list});
+    if (req.session.userid != undefined) {
+        pool.getConnection((err, conn)=>{
+            conn.query(`SELECT num, username, level, date FROM user ORDER BY date ASC`, (error, result)=>{
+                res.render('admin/list', {result});
+            });
+            conn.release();
         });
-        conn.release();
-    });
+    } else {
+        res.send(alertmove('/admin', 'Login first.'));
+    }
 });
 
 router.get('/view', (req, res)=>{
     const index = req.query.index;
-    pool.getConnection((err, conn)=>{
-        conn.query(`SELECT * FROM user`, (error, result)=>{
-            let list = result;
-            res.render('admin/view', {list, index});
+    if (req.session.userid != undefined) {
+        pool.getConnection((err, conn)=>{
+            conn.query(`SELECT * FROM user`, (error, result)=>{
+                res.render('admin/view', {result, index});
+            });
+            conn.release();
         });
-        conn.release();
-    });
+    } else {
+        res.send(alertmove('/admin', 'Login first.'));
+    }
 });
 
 router.get('/update', (req, res)=>{
     const index = req.query.index;
-    pool.getConnection((err, conn)=>{
-        conn.query(`SELECT * FROM user`, (error, result)=>{
-            let list = result;
-            res.render('admin/update', {list, index});
+    if (req.session.userid != undefined) {
+        pool.getConnection((err, conn)=>{
+            conn.query(`SELECT * FROM user`, (error, result)=>{
+                res.render('admin/update', {result, index});
+            });
+            conn.release();
         });
-        conn.release();
-    });
+    } else {
+        res.send(alertmove('/admin', 'Login first.'));
+    }
 });
 
 router.post('/update', (req, res)=>{
@@ -63,6 +74,13 @@ router.post('/update', (req, res)=>{
         });
         conn.release();
     });
+});
+
+router.get('/logout', (req, res)=>{
+    req.session.destroy(()=>{
+        req.session
+    });
+    res.send(alertmove('/admin', 'Bye.'));
 });
 
 module.exports = router;
