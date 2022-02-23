@@ -3,6 +3,7 @@ const router = express.Router()
 const {alertmove} = require('../../util/alert')
 // const user = require('../../models/user')
 const db = require('../../db')
+const pool = require('../../db');
 
 
 router.get('/login',(req,res)=>{
@@ -17,17 +18,18 @@ router.post('/register',(req,res,next)=>{
     db.query('INSERT INTO user(`userid`,`userpw`,`name`,`username`,`level`,`birth`,`gender`,`contact`,`phone`) VALUES(?,?,?,?,?,?,?,?,?)',param,(err,row)=>{
         if(err) console.log(err);
     })
-    res.redirect('/')
+    res.render('user/profile')
 })
 
 router.post('/login',(req,res)=>{
     param = [req.body.userid,req.body.userpw]
     db.query('select * from user where userid=? and userpw=?',[param[0],param[1]],(err,row)=>{
         if(err) console.log(err)
-
         if(row.length > 0){
+            //req.session.user = {...param}
+            res.render('./index',{user:req.session})
             console.log(`${param[0]} , ${param[1]} 성공적으로 로그인!`)
-            res.redirect('/')
+            // res.send(alertmove('./index',`${req.body.userid}님 접속 성공!`))
         } else {
             res.send(alertmove('/user/login','접속 불가!'))
         }
@@ -35,12 +37,13 @@ router.post('/login',(req,res)=>{
 })
 
 
-router.get('/profile',(req,res)=>{
-    res.render('user/profile',{
-        user:user
-    })
-    res.redirect('/')
-})
+// router.get('/profile',(req,res)=>{
+//     res.render('user/profile',{
+//         user:user
+//     })
+//     res.redirect('/')
+// })
+
 
 router.get('/logout',(req,res)=>{
     req.session.destroy(()=>{

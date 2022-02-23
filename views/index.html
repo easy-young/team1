@@ -1,7 +1,7 @@
 <ul>
-    {% if db %}
-        <li> {{db.username}}님 환영합니다. </li>
-        <li><a href="/user/profile">profile</a></li>
+    {% if user %}
+        <li> {{db.userid}}환영합니다. </li>
+        <!-- <li><a href="/user/profile">profile</a></li> -->
         <li><a href="/user/logout">logout</a></li>
     {% else %}
         <li><a href="/user/login">login</a></li>

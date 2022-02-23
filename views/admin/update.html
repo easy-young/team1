@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <script type="text/javascript" src="/update.js"></script>
+</head>
+<body>
+    Update Page
+    <form method="post" action="/admin/update">
+        <input type="hidden" name="index" value="{{index}}">
+        <ul>
+            <li><strong>No.</strong> : {{result[index-1].num}}</li>
+            <li><strong>UserID</strong> : {{result[index-1].userid}}</li>
+            <li><strong>Name</strong> : {{result[index-1].name}}</li>
+            <li><strong>Username</strong> : {{result[index-1].username}}</li>
+            <li><strong>Birth</strong> : {{result[index-1].birth}}</li>
+            <li><strong>Gender</strong> : {{result[index-1].gender}}</li>
+            <li><strong>Contact</strong> : {{result[index-1].contact}}</li>
+            <li><strong>Phone</strong> : {{result[index-1].phone}}</li>
+            <li><strong>Date</strong> : {{result[index-1].date}}</li>
+            <li>
+                <strong>Level</strong> : <input type="hidden" id="level" name="level" value="{{result[index-1].level}}">
+                <label for="level1"><input type="radio" id="level1" name="level1" value="{{result[index-1].level}}">Level1</label>
+                <label for="level2"><input type="radio" id="level2" name="level2" value="{{result[index-1].level}}">Level2</label>
+                <label for="level3"><input type="radio" id="level3" name="level3" value="{{result[index-1].level}}">Level3</label>
+            </li>
+            <li>
+                <strong>Status</strong> : <input type="hidden" id="status" name="status" value="{{result[index-1].status}}">
+                <label for="available"><input type="radio" id="available" name="available" value="{{result[index-1].status}}">Available</label>
+                <label for="forbidden"><input type="radio" id="forbidden" name="forbidden" value="{{result[index-1].status}}">Forbidden</label>
+            </li>
+        </ul>
+        <input type="submit" value="Update">
+    </form>
+    <a href="/admin/list">Go To List</a>
+</body>
+</html>
