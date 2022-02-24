@@ -23,9 +23,9 @@ router.post('/login',(req,res)=>{
     db.query('select * from user where userid=? and userpw=?',[param[0],param[1]],(err,row)=>{
         if(err) console.log(err)
         if(row.length > 0){
-            req.session.userid = row[0].userid
-            res.render('./index',{user:req.session})
-            console.log(`${param[0]} , ${param[1]} 성공적으로 로그인!`)
+            req.session.userid = row[0].userid;
+            res.render('./index',{user:req.session.userid});
+            console.log(`${param[0]} , ${param[1]} 성공적으로 로그인!`);
         } else {
             res.send(alertmove('/user/login','접속 불가!'))
         }
