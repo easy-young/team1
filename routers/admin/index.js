@@ -11,7 +11,7 @@ router.get('/', (req, res)=>{
 router.post('/', (req, res)=>{
     let {userid, userpw} = req.body;
     pool.getConnection((err, conn)=>{
-        conn.query(`SELECT userid, userpw FROM user WHERE userid='${userid}' AND userpw='${userpw}' AND level='1'`, (error, result)=>{
+        conn.query(`SELECT userid, userpw FROM user WHERE userid='${userid}' AND userpw='${userpw}' AND level='1';`, (error, result)=>{
             if (result.length != 0) {
                 req.session.userid = result[0].userid;
                 res.redirect('admin/list');
@@ -26,7 +26,7 @@ router.post('/', (req, res)=>{
 router.get('/list', (req, res)=>{
     if (req.session.userid != undefined) {
         pool.getConnection((err, conn)=>{
-            conn.query(`SELECT num, username, level, date FROM user ORDER BY date ASC`, (error, result)=>{
+            conn.query(`SELECT num, username, level, date FROM user ORDER BY date ASC;`, (error, result)=>{
                 res.render('admin/list', {result});
             });
             conn.release();
@@ -40,7 +40,7 @@ router.get('/view', (req, res)=>{
     const index = req.query.index;
     if (req.session.userid != undefined) {
         pool.getConnection((err, conn)=>{
-            conn.query(`SELECT * FROM user`, (error, result)=>{
+            conn.query(`SELECT * FROM user;`, (error, result)=>{
                 res.render('admin/view', {result, index});
             });
             conn.release();
@@ -54,7 +54,7 @@ router.get('/update', (req, res)=>{
     const index = req.query.index;
     if (req.session.userid != undefined) {
         pool.getConnection((err, conn)=>{
-            conn.query(`SELECT * FROM user`, (error, result)=>{
+            conn.query(`SELECT * FROM user;`, (error, result)=>{
                 res.render('admin/update', {result, index});
             });
             conn.release();
@@ -107,7 +107,6 @@ router.post('/board_delete', (req, res)=>{
         for (prop in req.body) {
             arr.push(req.body[prop]);
         }
-        console.log(arr);
         pool.getConnection((err, conn)=>{
             conn.query(`DELETE FROM board WHERE num IN (${arr});`, (error, result)=>{
                 res.redirect('/admin/board');

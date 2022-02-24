@@ -29,10 +29,6 @@ let sessionObj = {
 
 app.use(session(sessionObj))
 app.use(express.urlencoded({extended:true,}))
-<<<<<<< HEAD
-
-=======
->>>>>>> c5e158d7cf6783890e3aabad4a07cab23f82d957
 
 app.use(router)
 
