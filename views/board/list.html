@@ -7,33 +7,41 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylehseet" href="/css/css_board/list.css" type="text/css">
 </head>
 
 <body>
-  <h1>
-    <a href="/">LOGO</a>
-  </h1>
+  <div class="header">
+    <h1 class="logo">
+        <a href="/">LOGO</a>
+    </h1>
+  </div>
 
-  <h2>게시판 리스트</h2>
-  <table>
-    <tr>
-      <td>번호</td>
-      <td>제목</td>
-      <td>작성자</td>
-      <td>작성일</td>
-    </tr>
-    {% set num = 1 %}
-    {% for item in list %}
-    <tr>
-      <td>{{num}}</td>
-      <td><a href="/board/view?index={{num}}">{{item.subject}}</a></td>
-      <td>{{item.username}}</td>
-      <td>{{item.date}}</td>
-    </tr>
-    {% set num = num + 1 %}
-    {% endfor %}
-  </table>
-  <a href="/board/write">글 작성</a>
+  <div class="topnav">
+    Board List
+  </div> 
+
+  <div class="update_view">
+    <table>
+      <tr>
+        <td>번호</td>
+        <td>제목</td>
+        <td>작성자</td>
+        <td>작성일</td>
+      </tr>
+      {% set num = 1 %}
+      {% for item in list %}
+      <tr>
+        <td>{{num}}</td>
+        <td><a href="/board/view?index={{num}}">{{item.subject}}</a></td>
+        <td>{{item.username}}</td>
+        <td>{{item.date}}</td>
+      </tr>
+      {% set num = num + 1 %}
+      {% endfor %}
+    </table>
+    <a href="/board/write">글 작성</a>
+  </div>
 </body>
 
 </html>
