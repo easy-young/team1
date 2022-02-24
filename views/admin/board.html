@@ -5,29 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
+    <link rel="stylesheet" href="/css/css_admin/board.css">
 </head>
 <body>
-    Board Page
-    <table>
-        <tr>
-            <td>No.</td>
-            <td>Title</td>
-            <td>Username</td>
-            <td>Date</td>
-        </tr>
-        {% set num = 1 %}
-        {% for item in result %}
-        <tr>
-            <td>{{num}}</td>
-            <td><a href="/">{{item.title}}</a></td>
-            <td>{{item.username}}</td>
-            <td>{{item.date}}</td>
-        </tr>
-        {% set num = num + 1 %}
-        {% endfor %}
-    </table>
-    <a href="/admin/board_delete">Board Delete</a>
-    <a href="/admin/list">Go To List</a>
-    <a href="/admin/logout">Logout</a>
+    <div class="header">
+        <h1 class="logo">
+            <a href="/">LOGO</a>
+        </h1>
+      </div>
+
+      <div class="topnav">
+          Board Page
+      </div>
+
+    <div class="content">
+        <table>
+            <tr>
+                <td>No.</td>
+                <td>Title</td>
+                <td>Username</td>
+                <td>Date</td>
+            </tr>
+            {% set num = 1 %}
+            {% for item in result %}
+            <tr>
+                <td>{{num}}</td>
+                <td><a href="/">{{item.title}}</a></td>
+                <td>{{item.username}}</td>
+                <td>{{item.date}}</td>
+            </tr>
+            {% set num = num + 1 %}
+            {% endfor %}
+        </table>
+
+        <div class="delBtn">
+            <a href="/admin/board_delete">Board Delete</a>
+        </div>
+        
+    </div>
+
+
+
+    <div class="bottom_nav">
+        <div class="anchor_box1">
+            <a href="/admin/list">Go To List</a>
+        </div>
+
+        <div class="anchor_box2">
+            <a href="/admin/logout">Logout</a>
+        </div>
+    </div>
 </body>
 </html>
