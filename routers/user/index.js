@@ -52,7 +52,6 @@ router.get('/logout',(req,res)=>{
     req.session.destroy(()=>{
         req.session
     })
-
     res.send(alertmove('/','로그아웃 완료'))
 })
 

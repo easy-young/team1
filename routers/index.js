@@ -15,7 +15,7 @@ router.get('/',(req,res)=>{
 })
 
 const login = (req,res,next)=>{
-    let { user } = req.session
+    let {user} = req.session
         if (user != undefined) {
             next()
         } else {
