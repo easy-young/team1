@@ -2,7 +2,6 @@ const express = require('express')
 const nunjucks = require('nunjucks')
 const session = require('express-session')
 const Memorystore = require('memorystore')(session)
-const bodyParser = require('body-parser')
 const PORT = process.env.PORT || 3000
 
 require('dotenv').config()
@@ -30,8 +29,7 @@ let sessionObj = {
 
 app.use(session(sessionObj))
 app.use(express.urlencoded({extended:true,}))
-app.use(express.json())
-app.use(bodyParser.urlencoded({extended:true}))
+
 
 app.use(router)
 

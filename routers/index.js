@@ -7,6 +7,7 @@ const adminRouter = require('./admin');
 // const adminRouter = require('./admin/promise');
 
 
+
 router.get('/',(req,res)=>{
     const {user} = req.session
     res.render('index',{
@@ -16,7 +17,7 @@ router.get('/',(req,res)=>{
 
 const login = (req,res,next)=>{
     let {user} = req.session
-        if (user != undefined) {
+        if ({user} != undefined) {
             next()
         } else {
             res.send(alertmove('/','권한 없음'))

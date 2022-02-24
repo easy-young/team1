@@ -3,7 +3,6 @@ const router = express.Router()
 const {alertmove} = require('../../util/alert')
 const db = require('../../db')
 
-
 router.get('/login',(req,res)=>{
     res.render('user/login')
 })
@@ -24,6 +23,7 @@ router.post('/login',(req,res)=>{
     db.query('select * from user where userid=? and userpw=?',[param[0],param[1]],(err,row)=>{
         if(err) console.log(err)
         if(row.length > 0){
+            req.session.userid = row[0].userid
             res.render('./index',{user:req.session})
             console.log(`${param[0]} , ${param[1]} 성공적으로 로그인!`)
         } else {
@@ -32,18 +32,7 @@ router.post('/login',(req,res)=>{
     })
 })
 
-// async
-// router.post('/login', async (req,res)=>{
-//     let param = [req.body.userid,req.body.userpw]
-//     let sql ='select * from user where userid=? and userpw=?'
-//     let [result,fields] = await pool.execute(sql,[userid,userpw])
-//     if (result.length !=0){
-//         req.session.userid = result[0].userid;
-//         res.redirect('./index')
-//     }else{
-//         res.send(alertmove('/user/login','아이디와 비밀번호 불일치.'))
-//     }
-// })
+
 router.get('/profile',(req,res)=>{
     res.render('user/profile')
 })
