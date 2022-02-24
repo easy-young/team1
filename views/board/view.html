@@ -7,14 +7,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="/css/css_board/view.css" type="text/css">
 </head>
 
 <body>
-  <h1>
-    <a href="/">LOGO</a>
-  </h1>
+  <div class="header">
+    <h1 class="logo">
+        <a href="/">LOGO</a>
+    </h1>
+  </div>
 
-  <h2>글보기 페이지입니다.</h2>
+  <div class="topnav">
+    Board List
+  </div> 
+
+
+  <div class="update_view">
+
   <ul>
     <li><strong>글제목</strong> : {{data.subject}}</li>
     <li><strong>작성자</strong> : {{data.username}}</li>
@@ -27,6 +36,8 @@
     <input type="submit" value="삭제하기">
   </form>
   <a href="/board/update?index={{index}}">수정하기</a>
+</div>
+
 </body>
 
 </html>
