@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><a href="/">로고</a></h1>
+    <h2>게시판_글보기</h2>
+    {% for item in list %}
+    <tr>
+        <td>번호 : {{item.idx}}</td>
+        <td>제목: {{item.title}}</td>
+        <td>작성자 : {{item.content}}</td>
+        <td>작성일 : {{item.date}}</td>
+        <td>작성시간</td>
+        <td>조회수{{item.hit}}</td>
+    </tr>
+    {% endfor %}
+
+    <a href="/board/list">게시판 리스트 가기</a>
+    <input type="submit" value="수정">
+</body>
+</html>

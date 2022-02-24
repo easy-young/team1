@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>
+            <a href="/">로고</a>
+        </h1>
+        <h2>
+            게시판_글쓰기
+        </h2>
+        <!-- 제목,작성자,작성일 
+            Request method GET, POST 
+            내용을 가지고오고싶을떄 내용을 화면을 꾸밀때, 
+        -->
+        <form method="post" action="/board/write">
+            <ul>
+                <li>
+                    제목 : <input type="text" name="title">
+                </li>
+                <li>
+                    작성자 : <input type="text" name="user">
+                </li>
+                <li>
+                    내용 : <input type="text" name="content" size="50">
+                </li>
+            </ul>
+            <input type="submit" value="작성" >
+            <button><a href="../">취소</a></button>
+        </form>
+
+        
+    </body>
+    </html>
