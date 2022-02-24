@@ -1,0 +1,31 @@
+{
+  "name": "team",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "memorystore": "^1.6.7",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.15",
+    "nunjucks": "^3.2.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rlatjdgh1/team_project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rlatjdgh1/team_project/issues"
+  },
+  "homepage": "https://github.com/rlatjdgh1/team_project#readme",
+  "description": ""
+}

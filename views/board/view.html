@@ -1,0 +1,32 @@
+<!-- /board/view.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>
+    <a href="/">LOGO</a>
+  </h1>
+
+  <h2>글보기 페이지입니다.</h2>
+  <ul>
+    <li><strong>글제목</strong> : {{data.subject}}</li>
+    <li><strong>작성자</strong> : {{data.username}}</li>
+    <li><strong>작성일</strong> : {{data.date}}</li>
+    <li><strong>내용</strong> : {{변수}} </li>
+  </ul>
+  <a href="/board/list">목록으로</a>
+  <form method="post" action="/board/delete">
+    <input type="hidden" name="index" value="{{index}}">
+    <input type="submit" value="삭제하기">
+  </form>
+  <a href="/board/update?index={{index}}">수정하기</a>
+</body>
+
+</html>
