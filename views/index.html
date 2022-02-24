@@ -20,7 +20,7 @@
 <div class="topnav">
   <ul>
     {% if user %}
-    <li> {{db.userid}}환영합니다. </li>
+    <li class="greeting"> {{db.userid}}환영합니다. </li>
     <!-- <li><a href="/user/profile">profile</a></li> -->
     <li><a href="/user/logout">logout</a></li>
     {% else %}
@@ -33,15 +33,23 @@
 
 <div class="slides">
   <ul>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
+    <li>
+      <img src="http://localhost:3000/png/connection.png">
+    </li>
+    <li>
+      <img src="http://localhost:3000/png/online_dating.png">
+    </li>
+    <li>
+      <img src="http://localhost:3000/png/typewriter.png">
+    </li>
+    <li>
+      <img src="http://localhost:3000/png/welcoming.png">
+    </li>
 </ul>
 </div>
 
-<div class="footer">
-  <p>Footer</p>
+<div class="content">
+  <p>Content</p>
 </div>
 
 </body>
