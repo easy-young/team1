@@ -32,7 +32,10 @@ const config = {
 };
 
 const pool = mysql.createPool(config);
+<<<<<<< HEAD
 // console.log(pool);
+=======
+>>>>>>> d757b5bd85b5724d5ce4c86733c1a0f74ccfb267
 // pool.getConnection((err, conn)=>{
 //     conn.query('SELECT * FROM user', (error, result)=>{
 //         console.log(result);

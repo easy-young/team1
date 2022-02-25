@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="/css/css_admin/board_delete.css">
+</head>
+<body>
+
+    <div class="header">
+        <h1 class="logo">
+            <a href="/">LOGO</a>
+        </h1>
+      </div>
+
+    <div class="topnav">
+        Board Delete Page
+    </div>
+
+
+    <div class="content">
+        <form method="post" action="/admin/board_delete">
+            <table>
+                <tr>
+                    <td>No.</td>
+                    <td>Tag</td>
+                    <td>Title</td>
+                    <td>Username</td>
+                    <td>Date</td>
+                </tr>
+                {% set num = 1 %}
+                {% for item in result %}
+                <tr>
+                    <td>{{num}}</td>
+                    <td>
+                        <input type="checkbox" id="checkbox{{num}}" name="num{{num}}" value="{{result[num-1].num}}"></td>
+                    <td><a href="/">{{item.title}}</a></td>
+                    <td>{{item.username}}</td>
+                    <td>{{item.date}}</td>
+                </tr>
+                {% set num = num + 1 %}
+                {% endfor %}
+            </table>
+            <input type="submit" value="Delete">
+        </form>
+    </div>
+
+    <div class="bottom_nav">
+        <div class="anchor_box">
+            <a href="/admin/board">Go To Board</a>
+        </div>
+        <div class="anchor_box">
+            <a href="/admin/list">Go To List</a>
+        </div>
+        <div class="anchor_box">
+            <a href="/admin/logout">Logout</a>
+        </div>
+    </div>
+
+</body>
+</html>
