@@ -7,23 +7,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/css_board/write.css">
 </head>
 
 <body>
-    <h1>
-        <a href="/">LOGO</a>
-    </h1>
+    <div class="header">
+        <h1>
+            <a href="/">LOGO</a>
+        </h1>
+    </div>
 
-    <h2>게시판 글쓰기</h2>
-    <form method="post" action="/board/write">
-        <ul>
-            <li>제목 : <input type="text" name="title"></li>
-            <!-- <li>작성자 : <input type="text" name="username"></li> -->
-            <!-- <li>작성일 : <input type="text" name="date"></li> -->
-            <li>내용 : <input type="text" name="content"></li>
-        </ul>
-        <input type="submit" value="글 작성">
-    </form>
+    <div class="topnav">
+        Board Write
+    </div>
+
+    <div class="write">
+        <form method="post" action="/board/write">
+            <ul>
+                <li>제목 : <input type="text" name="title"></li>
+                <!-- <li>작성자 : <input type="text" name="username"></li> -->
+                <!-- <li>작성일 : <input type="text" name="date"></li> -->
+                <li>내용 : <input type="text" name="content"></li>
+            </ul>
+            <input type="submit" value="글 작성">
+        </form>
+    </div>
+    <div class="content"></div>
+
 </body>
 
 </html>
