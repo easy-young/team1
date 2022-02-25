@@ -4,10 +4,7 @@ const {alertmove} = require('../util/alert')
 const userRouter = require('./user')
 const boardRouter = require('./board')
 const adminRouter = require('./admin');
-<<<<<<< HEAD
-=======
 // const adminRouter = require('./admin/promise');
->>>>>>> d757b5bd85b5724d5ce4c86733c1a0f74ccfb267
 
 
 

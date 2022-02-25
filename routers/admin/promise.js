@@ -1,9 +1,5 @@
 const express = require('express');
 const nunjucks = require('nunjucks');
-<<<<<<< HEAD
-const app = express();
-=======
->>>>>>> d757b5bd85b5724d5ce4c86733c1a0f74ccfb267
 const router = express.Router();
 const {alertmove} = require('../../util/alert');
 const pool = require('../../db_promise').pool;
@@ -14,11 +10,7 @@ router.get('/', (req, res)=>{
 
 router.post('/', async (req, res)=>{
     let {userid, userpw} = req.body;
-<<<<<<< HEAD
-    let sql = `SELECT userid, userpw FROM user WHERE userid=? AND userpw=? AND level='1'`;
-=======
     let sql = `SELECT userid, userpw FROM user WHERE userid=? AND userpw=? AND level='1';`;
->>>>>>> d757b5bd85b5724d5ce4c86733c1a0f74ccfb267
     let [result, fields] = await pool.execute(sql, [userid, userpw]);
     if (result.length != 0) {
         req.session.userid = result[0].userid;
@@ -29,11 +21,7 @@ router.post('/', async (req, res)=>{
 });
 
 router.get('/list', async (req, res)=>{
-<<<<<<< HEAD
-    let sql = `SELECT num, username, level, date FROM user ORDER BY date ASC`;
-=======
     let sql = `SELECT num, username, level, date FROM user ORDER BY date ASC;`;
->>>>>>> d757b5bd85b5724d5ce4c86733c1a0f74ccfb267
     if (req.session.userid != undefined) {
         let [result] = await pool.execute(sql);
         res.render('admin/list', {result});
@@ -44,11 +32,7 @@ router.get('/list', async (req, res)=>{
 
 router.get('/view', async (req, res)=>{
     const index = req.query.index;
-<<<<<<< HEAD
-    let sql = `SELECT * FROM user`;
-=======
     let sql = `SELECT * FROM user;`;
->>>>>>> d757b5bd85b5724d5ce4c86733c1a0f74ccfb267
     if (req.session.userid != undefined) {
         let [result] = await pool.execute(sql);
         res.render('admin/view', {result, index});
@@ -59,11 +43,7 @@ router.get('/view', async (req, res)=>{
 
 router.get('/update', async (req, res)=>{
     const index = req.query.index;
-<<<<<<< HEAD
-    let sql = `SELECT * FROM user`;
-=======
     let sql = `SELECT * FROM user;`;
->>>>>>> d757b5bd85b5724d5ce4c86733c1a0f74ccfb267
     if (req.session.userid != undefined) {
         let [result] = await pool.execute(sql);
         res.render('admin/update', {result, index});
@@ -75,17 +55,11 @@ router.get('/update', async (req, res)=>{
 router.post('/update', async (req, res)=>{
     const index = req.body.index;
     let {level, status} = req.body;
-<<<<<<< HEAD
-    let sql = `UPDATE user SET level=?, status=? WHERE num=?`;
-=======
     let sql = `UPDATE user SET level=?, status=? WHERE num=?;`;
->>>>>>> d757b5bd85b5724d5ce4c86733c1a0f74ccfb267
     let [result, fields] = await pool.execute(sql, [level, status, index]);
     res.redirect(`/admin/view?index=${index}`);
 });
 
-<<<<<<< HEAD
-=======
 router.get('/board', async (req, res)=>{
     let sql = `SELECT * FROM board;`;
     if (req.session.userid != undefined) {
@@ -120,7 +94,6 @@ router.post('/board_delete', async (req, res)=>{
     }
 });
 
->>>>>>> d757b5bd85b5724d5ce4c86733c1a0f74ccfb267
 router.get('/logout', (req, res)=>{
     req.session.destroy(()=>{
         req.session
