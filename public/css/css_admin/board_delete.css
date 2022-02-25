@@ -40,22 +40,21 @@ body {
   font-size: 43px;
 }
 
-.content {
+.board {
   background-color: #ddd;
   padding: 16px;
 }
 
-.content {
+.board {
   overflow:hidden;
   width: 100%;
-  height: 800px;
 }
 
-/* .content ul{
+/* .board ul{
   position:relative;
   height:100%;
 }
-.content li{
+.board li{
   position:absolute;
   left:0;
   right:0;
@@ -107,7 +106,7 @@ input {
 }
 
 
-.bottom_nav {
+.content {
   background-color: #868e96;
   padding: 10px;
   height: 100px;
