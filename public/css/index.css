@@ -64,7 +64,6 @@ body {
 }
 
 .greeting {
-<<<<<<< HEAD
   display: inline-block;
   color: #f2f2f2;
   text-align: center;
@@ -72,9 +71,6 @@ body {
   font-size: 16px;
   text-decoration: none;
   font-weight:bolder;
-=======
-  font-size: 16px;
->>>>>>> d757b5bd85b5724d5ce4c86733c1a0f74ccfb267
 }
 
 .slides {
@@ -89,7 +85,6 @@ body {
 }
 
 .slides ul{
-<<<<<<< HEAD
   
   position:relative;
   width: 100%;
@@ -97,12 +92,6 @@ body {
 }
 .slides li{
   
-=======
-  position:relative;
-  height:100%;
-}
-.slides li{
->>>>>>> d757b5bd85b5724d5ce4c86733c1a0f74ccfb267
   position:absolute;
   left:0;
   right:0;
@@ -129,10 +118,7 @@ body {
 } 
 
 .slides > ul > li > img {
-<<<<<<< HEAD
   display:block;
-=======
->>>>>>> d757b5bd85b5724d5ce4c86733c1a0f74ccfb267
   margin: 0 auto;
   width: 1600px;
   height: 800px;
