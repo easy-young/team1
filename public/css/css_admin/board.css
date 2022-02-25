@@ -40,12 +40,12 @@ body {
   font-size: 43px;
 }
 
-.content {
+.board {
   background-color: #ddd;
   padding: 16px;
 }
 
-.content {
+.board {
   overflow:hidden;
   width: 100%;
   height: 800px;
@@ -100,11 +100,54 @@ table, tr, td {
   padding-top: 5px;
 }
 
-
-.bottom_nav {
+.content {
   background-color: #868e96;
   padding: 10px;
   height: 100px;
+}
+
+.content > .anchor_box1 {
+  display: inline-block;
+  width: 200px;
+  height: 50px;
+  margin: 0 auto;
+  margin-top: 18px;
+  background: #333;
+  border-radius: 200px;
+  position: absolute;
+    left: 15%;
+}
+
+.content > .anchor_box1 > a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-weight: bolder;
+  font-size: 30px;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.content > .anchor_box2 {
+  display: inline-block;
+  width: 200px;
+  height: 50px;
+  margin: 0 auto;
+  margin-top: 18px;
+  background: #333;
+  border-radius: 200px;
+  position: absolute;
+    left: 70%;
+}
+
+.content > .anchor_box2 > a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-weight: bolder;
+  font-size: 30px;
+  text-align: center;
+  padding-top: 5px;
 }
 
 .anchor_box1, .anchor_box2 {
@@ -116,8 +159,6 @@ table, tr, td {
   background: #333;
   border-radius: 200px;
 }
-
-
 
 .anchor_box1 > a, .anchor_box2 > a {
   display: block;

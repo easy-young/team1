@@ -64,8 +64,8 @@ table, tr, td {
   height: 100px;
 }
 
-.content > .box_anchor {
-  display: block;
+.content > .box_anchor1, .content > .box_anchor2 {
+  display: inline-block;
   width: 200px;
   height: 50px;
   margin: 0 auto;
@@ -74,7 +74,17 @@ table, tr, td {
   border-radius: 200px;
 }
 
-.content > .box_anchor > a {
+.content > .box_anchor1 {
+  position:absolute;
+  left: 15%;
+}
+
+.content > .box_anchor2 {
+  position:absolute;
+  left: 70%;
+}
+
+.content > .box_anchor1 > a, .content > .box_anchor2 > a {
   display: block;
   color: white;
   text-decoration: none;
