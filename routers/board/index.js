@@ -3,6 +3,7 @@ const express = require('express')
 const {alertmove} = require('../../util/alert')
 const router = express.Router()
 const data = require('./data')
+const pool = require('../../db');
 
 router.get('/list',(req,res)=>{
     const item = req.body
@@ -19,7 +20,27 @@ router.get('/view',(req,res)=>{
         index:index,
         item:item,
     })
-    
 })
 
+router.get('/write',(req,res)=>{
+    res.render('board/write')
+})
+router.post('/write',(req,res) =>{
+    let { title,content } = req.body;
+    console.log(req.body)
+        pool.getConnection( (err,conn)=>{
+            conn.query(`INSERT INTO board(title,content) VALUES('${title}','${content}')`,
+                (error,result)=>{
+                    console.log(result)
+                        res.render('board/list',{result})
+        })
+        conn.release();
+    })
+});
+
 module.exports = router
+
+
+
+
+
